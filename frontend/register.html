@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Food Reuse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <style>
+        /* Specific tweaks for select box inside login.css input-group */
+        .input-group select {
+            width: 100%;
+            padding: 1.2rem 1.2rem 1.2rem 3.2rem;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            background: #f4f6f8;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            outline: none;
+            box-sizing: border-box;
+            color: #333;
+            appearance: none;
+            cursor: pointer;
+        }
+        .input-group select:focus {
+            border-color: #4CAF50;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
+        }
+        .select-arrow {
+            position: absolute;
+            top: 50%;
+            right: 1.2rem;
+            transform: translateY(-50%);
+            color: #888;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="login-body">
+    <div class="split-screen">
+        <!-- Left Side: Background & Tagline -->
+        <div class="left-pane" style="background: linear-gradient(135deg, rgba(39, 174, 96, 0.9) 0%, rgba(46, 204, 113, 0.7) 100%);">
+            <div class="tagline-container">
+                <div class="logo">
+                     <i class="fa-solid fa-leaf"></i> Food Reuse
+                </div>
+                <h1>Start Your Journey.<br>Make an Impact.</h1>
+                <p>Register today to join thousands of donors and receivers redistributing meals globally.</p>
+            </div>
+        </div>
+        
+        <!-- Right Side: Register Form -->
+        <div class="right-pane">
+            <div class="glass-card" style="padding: 2.5rem;">
+                <h2>Create Account</h2>
+                <p class="subtitle">Please enter your details to register.</p>
+                
+                <form id="register-form">
+                    <div class="input-group">
+                        <i class="fa-solid fa-user icon"></i>
+                        <input type="text" id="name" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-envelope icon"></i>
+                        <input type="email" id="email" required placeholder="Enter your email">
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock icon"></i>
+                        <input type="password" id="password" required placeholder="Create a password">
+                        <i class="fa-solid fa-eye toggle-password" id="toggle-password"></i>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-id-badge icon"></i>
+                        <select id="role" required>
+                            <option value="receiver">Receiver (NGO/Needy)</option>
+                            <option value="donor">Donor (Restaurant/Individual)</option>
+                            <option value="admin">Platform Admin</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down select-arrow"></i>
+                    </div>
+                    
+                    <div class="error-container" id="error-container" style="display: none;">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <p id="error-msg"></p>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-login">Complete Registration <i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+                
+                <div class="register-link">
+                    <p>Already have an account? <a href="login.html">Sign in here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Custom interactive script for modern design 
+        
+        // Show/Hide Password Toggle
+        const togglePassword = document.getElementById('toggle-password');
+        const passwordInput = document.getElementById('password');
+
+        if(togglePassword) {
+            togglePassword.addEventListener('click', function () {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    this.classList.remove('fa-eye');
+                    this.classList.add('fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    this.classList.remove('fa-eye-slash');
+                    this.classList.add('fa-eye');
+                }
+            });
+        }
+
+        // Hooking elegantly into original error message container from auth.js
+        const errorMsg = document.getElementById('error-msg');
+        const errorContainer = document.getElementById('error-container');
+
+        if(errorMsg && errorContainer) {
+            const observer = new MutationObserver(function() {
+                if (errorMsg.style.display === 'block') {
+                    errorContainer.style.display = 'flex';
+                } else {
+                    errorContainer.style.display = 'none';
+                }
+            });
+            // Observe style changes on error-msg (auth.js sets .style.display = 'block')
+            observer.observe(errorMsg, { attributes: true, attributeFilter: ['style'] });
+        }
+    </script>
+</body>
+</html>

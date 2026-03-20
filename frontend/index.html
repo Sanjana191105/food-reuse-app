@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Reuse - Reduce Food Waste. Feed Lives.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar landing-nav">
+        <div class="logo">
+            <i class="fa-solid fa-leaf"></i> Food Reuse
+        </div>
+        <div class="nav-links">
+            <a href="login.html" class="nav-link">Log In</a>
+            <a href="register.html" class="btn btn-primary" style="margin-left: 1rem;">Get Started</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Reduce Food Waste.<br>Feed Lives.</h1>
+            <p>Join thousands of donors and NGOs working together to redistribute surplus food to those who need it most. Every meal counts.</p>
+            <div class="hero-buttons">
+                <a href="register.html" class="btn btn-primary btn-large">Join as a Donor</a>
+                <a href="register.html" class="btn btn-secondary btn-large">I am a Receiver</a>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('token')) {
+                window.location.href = 'dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>

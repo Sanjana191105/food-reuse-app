@@ -1,0 +1,288 @@
+/* login.css */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    /* Keep previous styles working for other pages but apply new ones here */
+}
+
+.login-body {
+    background: url('../img/background.png') no-repeat center center/cover;
+    font-family: 'Outfit', sans-serif; /* Override just for login page */
+    background-color: #f4f6f8;
+}
+
+/* Split screen layout */
+.split-screen {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Left Pane setup */
+.left-pane {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    position: relative;
+    /* Eco-friendly green gradient overlay to make text shine and fit theme */
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.9) 0%, rgba(76, 175, 80, 0.6) 100%);
+    color: white;
+}
+
+.tagline-container {
+    max-width: 550px;
+    animation: slideUp 1s ease-out;
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.left-pane h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.left-pane p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Right Pane setup */
+.right-pane {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    /* Glassmorphism */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    animation: scaleIn 0.8s ease-out;
+}
+
+.glass-card h2 {
+    color: #1a1a1a;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.glass-card .subtitle {
+    color: #666;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: none; /* Hide old labels since we use placeholder + icon */
+}
+
+.input-group .icon {
+    position: absolute;
+    top: 50%;
+    left: 1.2rem;
+    transform: translateY(-50%);
+    color: #888;
+    transition: 0.3s;
+    font-size: 1.1rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1.2rem 1.2rem 1.2rem 3.2rem;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background: #f4f6f8;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    outline: none;
+    box-sizing: border-box;
+    color: #333;
+}
+
+.input-group input:focus {
+    border-color: #4CAF50;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
+}
+
+.input-group input:focus ~ .icon {
+    color: #4CAF50;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 1.2rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.toggle-password:hover {
+    color: #4CAF50;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 1.2rem;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.btn-login:hover {
+    background: #388E3C;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.25);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 2rem;
+    color: #666;
+    font-size: 1rem;
+}
+
+.register-link a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.register-link a:hover {
+    color: #388E3C;
+    text-decoration: underline;
+}
+
+/* Enhanced Error Handling UI */
+.error-container {
+    background: #FFEBEE;
+    color: #C62828;
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    border: 1px solid #FFCDD2;
+    animation: scaleIn 0.3s ease-out;
+}
+
+.error-container p {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Minimal Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+    .split-screen {
+        flex-direction: column;
+    }
+    
+    .left-pane {
+        flex: none;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, rgba(30, 86, 49, 0.85) 0%, rgba(76, 175, 80, 0.7) 100%);
+        min-height: 45vh;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo {
+        justify-content: center;
+    }
+    
+    .left-pane h1 {
+        font-size: 2.8rem;
+    }
+    
+    .right-pane {
+        flex: 1;
+        background: #f4f6f8;
+        backdrop-filter: none;
+        padding: 2rem 1.5rem;
+        border-radius: 30px 30px 0 0;
+        margin-top: -40px;
+        z-index: 10;
+        border-left: none;
+    }
+    
+    .glass-card {
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        border: none;
+        background: white;
+        padding: 2.5rem 1.5rem;
+    }
+}

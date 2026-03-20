@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Food Reuse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-body">
+    <div class="split-screen">
+        <!-- Left Side: Background & Tagline -->
+        <div class="left-pane">
+            <div class="tagline-container">
+                <div class="logo">
+                     <i class="fa-solid fa-leaf"></i> Food Reuse
+                </div>
+                <h1>Reduce Food Waste.<br>Feed Lives.</h1>
+                <p>Join our community and make a real difference today.</p>
+            </div>
+        </div>
+        
+        <!-- Right Side: Login Form -->
+        <div class="right-pane">
+            <div class="glass-card">
+                <h2>Welcome Back</h2>
+                <p class="subtitle">Please enter your details to sign in.</p>
+                
+                <form id="login-form">
+                    <div class="input-group">
+                        <i class="fa-solid fa-envelope icon"></i>
+                        <input type="email" id="email" required placeholder="Enter your email">
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock icon"></i>
+                        <input type="password" id="password" required placeholder="Enter your password">
+                        <i class="fa-solid fa-eye toggle-password" id="toggle-password"></i>
+                    </div>
+                    
+                    <div class="error-container" id="error-container" style="display: none;">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <p id="error-msg"></p>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-login">Sign In <i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+                
+                <div class="register-link">
+                    <p>Don't have an account? <a href="register.html">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Custom interactive script for modern design 
+        
+        // Show/Hide Password Toggle
+        const togglePassword = document.getElementById('toggle-password');
+        const passwordInput = document.getElementById('password');
+
+        if(togglePassword) {
+            togglePassword.addEventListener('click', function () {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    this.classList.remove('fa-eye');
+                    this.classList.add('fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    this.classList.remove('fa-eye-slash');
+                    this.classList.add('fa-eye');
+                }
+            });
+        }
+
+        // Hooking elegantly into original error message container from auth.js
+        const errorMsg = document.getElementById('error-msg');
+        const errorContainer = document.getElementById('error-container');
+
+        if(errorMsg && errorContainer) {
+            const observer = new MutationObserver(function() {
+                if (errorMsg.style.display === 'block') {
+                    errorContainer.style.display = 'flex';
+                } else {
+                    errorContainer.style.display = 'none';
+                }
+            });
+            // Observe style changes on error-msg (auth.js sets .style.display = 'block')
+            observer.observe(errorMsg, { attributes: true, attributeFilter: ['style'] });
+        }
+    </script>
+</body>
+</html>
