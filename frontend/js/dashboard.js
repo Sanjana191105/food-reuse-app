@@ -95,9 +95,10 @@ const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1593113544332-628d6f5ba
 
 const getEmptyStateHTML = (message, icon = 'fa-folder-open') => `
     <div class="empty-state">
-        <i class="fa-solid ${icon}"></i>
-        <h3>Oops! Nothing here yet.</h3>
+        <i class="fa-solid ${icon}" style="color:var(--primary-color); opacity:0.8;"></i>
+        <h3>Your Feed is Quiet Right Now</h3>
         <p>${message}</p>
+        <p style="margin-top:10px; font-size:0.9rem; color:var(--text-muted);"><i class="fa-solid fa-arrow-down"></i> Scroll down to see what the community has been up to!</p>
     </div>
 `;
 
