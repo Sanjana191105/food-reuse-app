@@ -1,0 +1,7 @@
+[build]
+  # Since your frontend is plain HTML/CSS/JS, there is no build command needed
+  command = ""
+  # Tell Netlify that the website files are inside the "frontend" folder
+  publish = "frontend"
+
+
