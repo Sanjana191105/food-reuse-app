@@ -9,15 +9,22 @@
 </head>
 <body class="dashboard-body">
     <nav class="navbar">
-        <a href="dashboard.html" class="logo">
+        <a href="dashboard.html" class="logo" style="text-decoration:none;">
             <i class="fa-solid fa-leaf"></i> Food Reuse
         </a>
-        <div class="nav-links profile-menu">
-            <div class="user-badge">
-                <i class="fa-solid fa-circle-user profile-icon"></i>
-                <span id="user-name">Loading...</span>
+        <div class="nav-links profile-menu" style="display: flex; gap: 2rem;">
+            <div style="display: flex; align-items: center; gap: 1.5rem;" class="hide-mobile">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </div>
-            <button id="logout-btn" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div class="user-badge">
+                    <i class="fa-solid fa-circle-user profile-icon"></i>
+                    <span id="user-name">Loading...</span>
+                </div>
+                <button id="logout-btn" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+            </div>
         </div>
     </nav>
 
