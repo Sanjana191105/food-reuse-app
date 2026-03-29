@@ -18,13 +18,36 @@
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Reduce Food Waste.<br>Feed Lives.</h1>
-            <p>Join thousands of donors and NGOs working together to redistribute surplus food to those who need it most. Every meal counts.</p>
+    <header class="hero" style="position: relative;">
+        <div class="hero-content" style="z-index: 2;">
+            <h1 style="font-size: 4.5rem; background: -webkit-linear-gradient(45deg, #0ba360, #1fa2ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Reduce Food Waste.<br>Feed Lives.</h1>
+            <p style="font-size: 1.3rem; margin-bottom: 2.5rem; color: #34495e;">Join thousands of donors and NGOs working together to redistribute surplus food to those who need it most. Every meal counts.</p>
             <div class="hero-buttons">
-                <a href="register.html" class="btn btn-primary btn-large">Join as a Donor</a>
-                <a href="register.html" class="btn btn-secondary btn-large">I am a Receiver</a>
+                <a href="register.html" class="btn btn-primary btn-large"><i class="fa-solid fa-hand-holding-heart"></i> Join as a Donor</a>
+                <a href="register.html" class="btn btn-secondary btn-large"><i class="fa-solid fa-basket-shopping"></i> I am a Receiver</a>
+            </div>
+        </div>
+
+        <style>
+            @media (max-width: 900px) { .floating-panel { display: none !important; } }
+            .floating-panel { transition: transform 0.3s ease; }
+            .floating-panel:hover { transform: translateY(-10px); }
+        </style>
+        
+        <!-- Floating Glass Panels for Premium Aesthetics -->
+        <div class="floating-panel animate-up" style="position: absolute; right: 10%; top: 25%; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 1.5rem; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 1rem; animation-delay: 0.3s; border: 1px solid rgba(255,255,255,0.6); z-index: 1;">
+            <div style="background: #eafaf1; padding: 1rem; border-radius: 50%;"><i class="fa-solid fa-earth-americas fa-2x" style="color: #27ae60;"></i></div>
+            <div>
+                <h4 style="margin: 0; font-size: 1.4rem; color: #2c3e50;">2.5M+</h4>
+                <span class="text-muted" style="font-size: 0.95rem; font-weight: 500;">Meals Saved Globally</span>
+            </div>
+        </div>
+        
+        <div class="floating-panel animate-up" style="position: absolute; right: 22%; bottom: 20%; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 1.5rem; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 1rem; animation-delay: 0.6s; border: 1px solid rgba(255,255,255,0.6); z-index: 1;">
+            <div style="background: #e3f2fd; padding: 1rem; border-radius: 50%;"><i class="fa-solid fa-users fa-2x" style="color: #1fa2ff;"></i></div>
+            <div>
+                <h4 style="margin: 0; font-size: 1.4rem; color: #2c3e50;">NGO Networks</h4>
+                <span class="text-muted" style="font-size: 0.95rem; font-weight: 500;">Connecting 500+ Charities</span>
             </div>
         </div>
     </header>

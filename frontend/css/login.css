@@ -10,10 +10,16 @@ html, body {
 }
 
 .login-body {
-    background: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    background: linear-gradient(-45deg, #0ba360, #3cba92, #1fa2ff, #12d8fa);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     font-family: 'Outfit', sans-serif;
-    background-color: #f4f6f8;
-    background-attachment: fixed;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Split screen layout */
@@ -33,9 +39,9 @@ html, body {
     padding: 4rem;
     position: relative;
     /* Eco-friendly transparent gradient to show background image */
-    background: linear-gradient(135deg, rgba(46, 125, 50, 0.8) 0%, rgba(76, 175, 80, 0.4) 100%);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.4) 0%, rgba(76, 175, 80, 0.1) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     color: white;
 }
 
@@ -75,10 +81,10 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     /* Glassmorphism */
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     border-left: 1px solid rgba(255, 255, 255, 0.2);
     padding: 2rem;
 }
